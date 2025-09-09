@@ -49,7 +49,7 @@ label start:
 label scenario1:
     $ moral_score = 0
 
-    scene bg home_day
+    scene entrance  
     with fade
 
     "Sa maliit na bayan ng San Isidro, nakatira ang pamilya Santos sa isang simpleng tahanan."
@@ -71,7 +71,7 @@ label scenario1:
 
 # ------------------ ACT 1: ANG UMAGA ------------------
 label act1:
-    scene bg home_morning
+    scene lounge 
     with fade
 
     "Maagang umaga sa tahanan ng mga Santos. Ang araw ay nagsisimula na at may mga gawaing naghihintay."
@@ -101,7 +101,7 @@ label act1:
 
 # ------------------ ACT 2: PAGKAKAMALI NI MIGUEL ------------------
 label act2:
-    scene bg playground
+    scene hi
     with fade
 
     "Pagkatapos ng klase, naglaro si Miguel at ang kanyang mga kaibigan sa palaruan."
@@ -137,7 +137,7 @@ label act2:
 
 # ------------------ ACT 3: PAGSUBOK SA TRABAHO ------------------
 label act3:
-    scene bg home_evening
+    scene dining_kitchen
     with fade
 
     "Isang linggo ang lumipas, may mas malaking pagsubok ang dumating sa pamilya Santos."
@@ -172,7 +172,7 @@ label act3:
 
 # ------------------ ACT 4: MGA TUksO ------------------
 label act4:
-    scene bg street
+    scene outside2
     with fade
 
     "Dahil sa kahirapan, naging vulnerable si Miguel sa mga tukso."
@@ -277,7 +277,7 @@ label filipino_ending:
         jump good_ending
 
 label bad_ending:
-    scene bg home_dark
+    scene  home_dark
     with fade
     "Dahil sa mga maling desisyon, unti-unting nagkawatak-watak ang pamilyang Santos."
     "Ang kawalan ng respeto, pananampalataya, and pagtutulungan ay nagpatunay na ang mga maling pagpili ay nagdudulot ng kapahamakan."
@@ -286,7 +286,7 @@ label bad_ending:
     return
 
 label neutral_ending:
-    scene bg home_evening
+    scene home_evening
     with fade
     "Nakaraos ang pamilyang Santos sa mga pagsubok, ngunit may mga sugat na hindi agad gumaling."
     "Natutunan nilang magtulungan at magtiwala sa isa't isa, ngunit may mga pagkakataong nagkakaroon pa rin ng alitan."
@@ -295,7 +295,7 @@ label neutral_ending:
     return
 
 label good_ending:
-    scene bg home_day
+    scene lounge
     with fade
     "Sa kabila ng mga pagsubok, lumakas at tumibay ang pamilyang Santos."
     "Ang kanilang pagtitiwala sa isa't isa, pananampalataya sa Diyos, at pagiging matatag sa harap ng hamon ay nagbunga ng magandang kinabukasan."
@@ -306,12 +306,24 @@ label good_ending:
     return
 
 # ------------------ SCENARIO 2: ANG HARdIN NG PAGPAPAHALAGA ------------------
-
 # Ang Hardin ng Pagpapahalaga: Isang Kuwento Para sa Linggo ng Wika
+# Ang Hardin ng Pagpapahalaga: Isang Kuwento Para sa Linggo ng Wika
+
+# Declare background images
+image bg classroom1 = "BG/classroom1.png"
+image bg hallway = "BG/hallway.png"
+image bg hallway1 = "BG/hallway1.png"
+image bg clubroom1 = "BG/smp_club1_day1.png"
+
+# Declare ending images
+image ending_good = "ending_good.png"
+image ending_bad = "ending_bad.png"
+image ending_neutral = "ending_neutral.png"
+
 label scenario2:
     $ moral_score = 0
     
-    scene bg classroom_day
+    scene bg classroom1
     with fade
 
     "Pahilis na humigop ang sikat ng araw sa mga bintana ng silid-aralan ni Maestro Aurelio, na nagliliwanag sa mga partikulo ng alikabok na sumasayaw sa hangin."
@@ -344,7 +356,7 @@ label scenario2:
 
 # ------------------ ACT 1: MGA PAGPAPAHALAGA ------------------
 label sc2_act1:
-    scene bg classroom_day
+    scene bg classroom1
     with fade
 
     "Nagsimula nang maayos ang linggo."
@@ -392,7 +404,7 @@ label sc2_act1:
 
 # ------------------ ACT 2: ANG SAKUNA ------------------
 label sc2_act2:
-    scene bg classroom_day
+    scene bg hallway1
     with fade
 
     "Kalagitnaan ng linggo, dumating ang malaking sakuna."
@@ -431,7 +443,7 @@ label sc2_act2:
 
 # ------------------ ACT 3: PAGBABAGONG-LOOB NI LEO ------------------
 label sc2_act3:
-    scene bg classroom_afternoon
+    scene bg hallway 
     with fade
 
     "Mabilis silang kumilos."
@@ -483,44 +495,44 @@ label sc2_act3:
 
 # ------------------ WAKAS ------------------
 label sc2_ending:
-    scene bg gymnasium
-    with fade
-
-    "Sa araw ng fair, ang kanilang 'Hardin ng Pagpapahalaga' ay proud na nakaposisyon sa gymnasium."
-    "Ito ang pinakamagandang display, hindi dahil ito ay perpekto, kundi dahil ang kuwento nito ay nakaukit sa bawat stroke."
-
-    "Pagdating ng oras ng presentasyon, binasa ng bawat miyembro ang kani-kanilang kuwento. Sa huli, turn na ni Leo."
-
     if moral_score >= 2:
-        show leo at center
-        leo "Ang aking pagpapahalaga ay Mapagpasalamat. Noong una, hindi ko alam kung ano ang ipagpapasalamat..."
-        leo "Ngunit sa linggong ito, nakakita ako ng isang kamangha-manghang bagay. Nakita ko kung paano gawing kooperasyon ang sisihan ng paggalang."
-        leo "Nakita ko kung paano gawing solusyon ang pagkakamali ng pananagutan. Nakita ko kung paano painugin ng pananampalataya ang daan sa isang madilim na sandali."
-        leo "Nakita ko kung paano likhain ng kalinisan ang kagandahan mula sa kaguluhan. Nakita ko kung paano maging pagmamahal sa iyong grupo, sa iyong team, sa iyong mga kaibigan ang nasyonalismo."
-        leo "At nakita ko ang pasasalamat sa aking matalik na kaibigan na si Miguel, na nagparamdam sa ating lahat na tayo ay mahalaga."
-        leo "Kaya ngayon, ako ay nagpapasalamat. Nagpapasalamat ako sa proyektong ito na tumulong sa akin na makita kung sino ako."
-        leo "Ako ay isang Pilipino, and nagpapasalamat ako sa aking mga bagong kaibigan na nagpakita sa akin kung ano talaga ang ibig sabihin nito."
+        jump sc2_good
 
-        "Sumabog ang klase sa palakpakan. Ngumiti si Maestro Aurelio, may luha sa kanyang mata."
-
-        show maestro at center
-        maestro "Natutunan ninyo na ang mga pagpapahalagang ito ay hindi lamang mga salita sa isang pahina; ang mga ito ay buhay, kumikilos na mga aksyon na, kapang pinagsama-sama, ay lumikha hindi lamang ng isang magandang proyekto, kundi isang magandang komunidad."
-
-        "Nagtanim sila ng isang hardin, at sa paggawa nito, ay hinayaan ang kanilang sariling mga diwa na mag-ugat at lumago."
+    elif moral_score in [-1, 0, 1]:
+        jump sc2_neutral
 
     elif moral_score <= -2:
+        jump sc2_bad
+    
+    
+    label sc2_good:
+        scene bg classroom1
+        with fade
+        "Sa araw ng fair, ang kanilang 'Hardin ng Pagpapahalaga' ay proud na nakaposisyon sa gymnasium."
+        "Ito ang pinakamagandang display, hindi dahil ito ay perpekto, kundi dahil ang kuwento nito ay nakaukit sa bawat stroke."
+        # ... (Leo’s inspiring speech kept the same)
+        show maestro at center
+        maestro "Natutunan ninyo na ang mga pagpapahalagang ito ay hindi lamang mga salita sa isang pahina; ang mga ito ay buhay..."
+        "Nagtanim sila ng isang hardin, at sa paggawa nito, ay hinayaan ang kanilang sariling mga diwa na mag-ugat at lumago."
+        return 
+
+    label sc2_bad:
+        scene bg classroom1
+        with fade
         "Ngunit sa kasamaang-palad, ang kanilang proyekto ay hindi gaanong naging maganda dahil sa kawalan ng pagtutulungan."
         "Ang mga dahon ay hindi magkakatugma at ang puno ay mukhang hindi pinag-isipan."
         "Si Leo ay hindi nakapagbahagi ng kanyang kuwento dahil hindi niya ito natapos."
         "Nagtapos ang Linggo ng Wika na may hindi magandang karanasan para sa grupo."
+        return
 
-    else:
+    label sc2_neutral:
+        scene bg classroom1
+        with fade
         "Ang kanilang proyekto ay naging maayos ngunit may mga kakulangan pa rin."
         "Nakapagbahagi si Leo ng kanyang kuwento ngunit kulang sa kumpyansa at sigla."
         "Natuto ang grupo ng mahahalagang aral ngunit may mga pagkakataong hindi sila nagkasundo."
-
-    return
-
+        return
+        
 # --- SCENARIO 3: ANG PUSO NG BARANGAY PAG-ASA ---
 
 label scenario3:
